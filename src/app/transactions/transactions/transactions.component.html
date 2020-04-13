@@ -1,0 +1,27 @@
+<mat-tab-group dynamicHeight>
+  <mat-tab label="Cash Payment">
+    <ng-template matTabContent>
+      Content 1 - Loaded: {{getTimeLoaded(1) | date:'medium'}}
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Cash Receive">
+    <ng-template matTabContent>
+      Content 2 - Loaded: {{getTimeLoaded(2) | date:'medium'}}
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Bank Payment">
+    <ng-template matTabContent>
+      Content 3 - Loaded: {{getTimeLoaded(3) | date:'medium'}}
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Bank Receive">
+    <ng-template matTabContent>
+      Content 4 - Loaded: {{getTimeLoaded(4) | date:'medium'}}
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Journal">
+    <ng-template matTabContent>
+      Content 5 - Loaded: {{getTimeLoaded(5) | date:'medium'}}
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

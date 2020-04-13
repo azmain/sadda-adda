@@ -1,0 +1,67 @@
+<h3 class="headline">Add Task</h3>
+<form [formGroup]="form" class="normal-form" (submit)="onSubmit()">
+  <mat-grid-list cols="2" rowHeight="300px">
+    <!-- first column -->
+    <mat-grid-tile>
+      <div class="controles-container">
+        <input type="hidden" formControlName="id">
+        <!-- title -->
+        <mat-form-field appearance="outline">
+          <mat-label>Task Title*</mat-label>
+          <input matInput placeholder="Homework" formControlName="title">
+          <mat-error>Task title is required.</mat-error>
+        </mat-form-field>
+        <!-- description -->
+        <mat-form-field appearance="outline">
+          <mat-label>Description</mat-label>
+          <textarea 
+            matInput 
+            placeholder="Need to do project work" 
+            formControlName="description">
+          </textarea>
+        </mat-form-field>
+        <!-- completed -->
+        <div class="add-bottom-padding">
+          <mat-checkbox formControlName="completed">Completed!</mat-checkbox>
+        </div>
+      </div>
+    </mat-grid-tile>
+
+    <!-- second column -->
+    <mat-grid-tile>
+      <div class="controles-container">
+        <!-- task status -->
+        <div class="add-bottom-padding">
+          <mat-radio-group formControlName="status">
+            <mat-radio-button value="on">On Going</mat-radio-button>
+            <mat-radio-button value="off">Not Started</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <!-- task deadline -->
+        <mat-form-field appearance="outline">
+          <mat-label>Deadline*</mat-label>
+          <input 
+            matInput 
+            formControlName="deadline" 
+            [matDatepicker]="picker" 
+            [min]="minDate"
+            placeholder="{{ getCurrentDate() }}">
+          <mat-error>Deadline is required.</mat-error>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <!-- save and clear button -->
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+            Save
+          </button>
+          <button mat-raised-button color="warn" type="button" (click)="onClear()">
+            Clear
+          </button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>

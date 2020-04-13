@@ -1,0 +1,83 @@
+<!-- toolbar/appbar -->
+<mat-toolbar color="primary" id="mainTopToolbar">
+	<mat-toolbar-row>
+		<!-- left sidenav toggle button -->
+		<button mat-icon-button (click)="sidenav.toggle()" *ngIf="false">
+			<mat-icon>menu</mat-icon>
+		</button>
+		<span>SADDA ADDA</span>
+		<span class="spacer"></span>
+		<!-- <mat-icon class="toolbar-icon" aria-hidden="false" aria-label="Example heart icon">
+			favorite
+		</mat-icon> -->
+
+		<ng-template *ngIf="false; else loggedOutMenu">
+			<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+				<mat-icon>more_vert</mat-icon>
+			</button>
+			<mat-menu #menu="matMenu">
+				<button mat-menu-item>
+					<mat-icon>dialpad</mat-icon>
+					<span>Redial</span>
+				</button>
+				<button mat-menu-item disabled>
+					<mat-icon>voicemail</mat-icon>
+					<span>Check voice mail</span>
+				</button>
+				<button mat-menu-item>
+					<mat-icon>notifications_off</mat-icon>
+					<span>Disable alerts</span>
+				</button>
+			</mat-menu>
+		</ng-template>
+		<ng-template #loggedOutMenu>
+			<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+				<mat-icon>more_vert</mat-icon>
+			</button>
+			<mat-menu #menu="matMenu">
+				<button mat-menu-item>
+					<mat-icon>fingerprint</mat-icon>
+					<span>Sign In</span>
+				</button>
+				<button mat-menu-item>
+					<mat-icon>how_to_reg</mat-icon>
+					<span>Sign Up</span>
+				</button>
+			</mat-menu>
+		</ng-template>
+
+
+	</mat-toolbar-row>
+</mat-toolbar>
+
+<!-- side navbar container -->
+<mat-sidenav-container id="sideNavContainer" fullscreen>
+	<!-- side navbar left -->
+	<mat-sidenav #sidenav id="sidenav">
+
+		<mat-card>
+			<mat-card-header>
+				<div mat-card-avatar class="avatar"></div>
+
+				<mat-card-title>Nishan</mat-card-title>
+				<mat-card-subtitle>Software Engineer</mat-card-subtitle>
+			</mat-card-header>
+		</mat-card>
+
+		<mat-list>
+			<mat-list-item *ngFor="let menu of menus">
+				<button routerLink="{{ menu.link }}" class="menu-item" mat-flat-button>
+					<mat-icon>dashboard</mat-icon>
+					{{ menu.name }}
+				</button>
+			</mat-list-item>
+		</mat-list>
+	</mat-sidenav>
+
+	<!-- side navbar right content -->
+	<mat-sidenav-content>
+		<div style="padding: 20px 20px 20px">
+			<router-outlet></router-outlet>
+		</div>
+	</mat-sidenav-content>
+</mat-sidenav-container>

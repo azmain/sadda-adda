@@ -1,0 +1,17 @@
+
+.totalRecovered {
+    background-color: rgb(46, 233, 9) !important;
+    color: #ffffff !important;
+}
+.newDeaths {
+    background-color: rgb(240, 0, 0) !important;
+    color: #ffffff !important;
+}
+.totalDeaths {
+    background-color: rgb(236, 176, 64) !important;
+    color: #ffffff !important;
+}
+.newCases {
+    background-color: rgb(93, 197, 188) !important;
+    color: #ffffff !important;
+}

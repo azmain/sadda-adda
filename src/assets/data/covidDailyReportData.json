@@ -1,0 +1,18 @@
+[
+    {
+        "country": "BANGLADESH",
+        "totalCases": 50,
+        "newCases": 4,
+        "totalDeaths": 30,
+        "newDeaths": 2,
+        "totalRecovered": 20
+    },
+    {
+        "country": "USA",
+        "totalCases": 300000,
+        "newCases": 1000,
+        "totalDeaths": 20000,
+        "newDeaths": 1200,
+        "totalRecovered": 200000
+    }
+]

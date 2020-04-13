@@ -1,0 +1,93 @@
+<div class="ui-g-12">
+    <div class="ui-g-12">
+        <mat-card>
+            <mat-card-title>
+                <span>COVID-19 Tracker</span>
+                <span style="float: right; background-color: bisque;">{{ date | date: 'MMM d, y, h:mm:ss a' }}</span>
+            </mat-card-title>
+            <mat-card-content>
+                <hr>
+                <p>
+                This Application lists the current number of cases,
+                recovered & deaths reported across the globe.
+                </p> 
+                <p>
+                Data Source - [https://github.com/CSSEGISandData/COVID-19]
+                </p>
+                <p>
+                    Data Refreshes every hour.
+                </p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+
+<div class="ui-g-12">
+    <div class="ui-g-12 ui-md-6">
+        <mat-card>
+            <mat-card-content>
+                <img mat-card-image 
+                    style="height: 150px;" 
+                    src="/assets/img/covid.jpg" alt="Photo of COVID-19">
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="ui-g-12 ui-md-6">
+        <mat-card>
+            <mat-card-content>
+                    <img mat-card-image 
+                        style="height: 150px;"
+                        src="/assets/img/staySafe.jpg" alt="Photo of COVID-19">
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+
+
+<div class="ui-g-12">
+    <div class="ui-g-12">
+        <mat-card>
+            <mat-card-content>
+                <p-table [columns]="scrollableCols" #dt
+                    [frozenColumns]="frozenCols" 
+                    [value]="covidDailyReportData" [scrollable]="true"
+                    scrollHeight="800px" frozenWidth="250px">
+                    
+                    <ng-template pTemplate="colgroup" let-columns>
+                        <colgroup>
+                            <col *ngFor="let col of columns" style="width:150px;">
+                        </colgroup>
+                    </ng-template>
+                    <ng-template pTemplate="header" let-columns>
+                        <tr>
+                            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                                {{col.header}}
+                                <p-sortIcon [field]="col.field"></p-sortIcon>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                                <input *ngSwitchCase="'country'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, 'contains')">
+                                <input *ngSwitchDefault pInputText type="text" placeholder="Greater Than" (input)="dt.filter($event.target.value, col.field, 'custom')">
+                            </th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-rowData let-columns="columns">
+                        <tr>
+                            <td *ngFor="let col of columns" [ngClass]="col.field">
+                                {{rowData[col.field]}}
+                            </td>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="emptymessage" let-columns>
+                            <tr style="text-align: center;">
+                                <td [attr.colspan]="columns.length">
+                                    No records found
+                                </td>
+                            </tr>
+                        </ng-template>
+                </p-table>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
