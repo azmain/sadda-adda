@@ -1,0 +1,55 @@
+<div class="ui-g">
+    <div class="ui-g-2"></div>
+    <div class="ui-g-8">
+
+        <mat-card>
+            <mat-card-title style="text-align: center;">
+                Login
+                <hr>
+            </mat-card-title>
+            <mat-card-content>
+                <div class="ui-g" [formGroup]="loginForm">
+                    <div class="ui-g-12">
+                        <div class="ui-g-12">
+                            <div class="ui-inputgroup">
+                                <span class="ui-inputgroup-addon"><i class="pi pi-user"
+                                        style="line-height: 1.25;"></i></span>
+                                <input type="text" formControlName="userNameOrEmail" pInputText placeholder="Username">
+                                
+                            </div>
+                            <div>
+                                <span class="formError" *ngIf="loginForm.controls['userNameOrEmail'].invalid&&loginForm.controls['userNameOrEmail'].touched">Username is required.</span>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-12">
+                            <div class="ui-inputgroup">
+                                <span class="ui-inputgroup-addon"><i class="pi pi-key"
+                                        style="line-height: 1.25;"></i></span>
+                                <input type="password" formControlName="password" pInputText placeholder="Password">
+                            </div>
+                            <div>
+                                <span class="formError" *ngIf="loginForm.controls.password.invalid&&(loginForm.controls.password.touched)">Password is required.</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-12">
+                            <button pButton type="button" label="Login" class="ui-button-rounded" (click)="login()"></button>
+                        </div>
+                        
+                    </div>
+                </div>
+
+            </mat-card-content>
+        </mat-card>
+
+    </div>
+    <div class="ui-g-2"></div>
+</div>
+
+<p-toast [style]="{marginTop: '80px'}"></p-toast>

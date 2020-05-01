@@ -1,17 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 /* material design */
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCheckboxModule } from '@angular/material';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatMenuModule } from '@angular/material/menu';
-import {MatListModule} from '@angular/material/list';
-import {MatCardModule} from '@angular/material/card';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 /* routing */
 import { AppRoutingModule } from './app.routes';
@@ -20,44 +13,42 @@ import { AppComponent } from './app.component';
 import { from } from 'rxjs';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { IndexComponent } from './index/components/index.component';
-import {InputTextModule} from 'primeng/inputtext';
-import {ListboxModule} from 'primeng/listbox';
-import {FormsModule} from '@angular/forms';
-import {TableModule} from 'primeng/table';
+
 import { IndexService } from './index/services/service-api/index.service';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './shared/login/components/login.component';
+import { MessageService } from 'primeng/api';
+import { LoginService } from './shared/login/services/service-api/login.service';
+import { AngularPrimeModule } from './shared/angular.prime.module';
+import { AngularMaterialModule } from './shared/angular.material.module';
+import { NotificationComponent } from './shared/notification/notification.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
-    NotFoundComponent
+    LoginComponent,
+    NotFoundComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
     // routing
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
-
-    // material design
+    
     BrowserAnimationsModule,
-    MatCheckboxModule,
-    MatButtonModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatListModule,
-    MatCardModule,
-    MatSnackBarModule,
+    // material design
 
-    //primeng
-    InputTextModule,
-    ListboxModule,
-    TableModule
+    AngularPrimeModule,
+    AngularMaterialModule
+    
+
+    
   ],
-  providers: [IndexService],
+  providers: [IndexService, MessageService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

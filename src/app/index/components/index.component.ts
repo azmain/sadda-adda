@@ -10,7 +10,7 @@ import { Subscription, timer } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 @Component({
-    selector: 'ain-index',
+    selector: 'sd-index',
     templateUrl: './index.component.html',
     styleUrls: ['./index.component.css']
 })
