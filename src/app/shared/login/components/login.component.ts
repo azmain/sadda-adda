@@ -1,10 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 
 import {MessageService} from 'primeng/api';
 import { LoginService } from '../services/service-api/login.service';
-import { AuthService } from '@module/shared/auth/services/AuthService';
+import { AuthService } from '@module/shared/auth/services/auth.service';
 
 @Component({
     selector: 'login-component',
@@ -18,17 +18,14 @@ export class LoginComponent implements OnInit{
     constructor(
         private messageService: MessageService,
         private loginService: LoginService,
-        private router: Router,
         private authService: AuthService
-    ){
-
-    }
+    ){}
 
     ngOnInit(){
-        this.prepareLoginFOrm();
+        this.prepareLoginForm();
     }
 
-    prepareLoginFOrm(){
+    prepareLoginForm(){
         this.loginForm = new FormGroup({
             userNameOrEmail: new FormControl('', [Validators.required]),
             password: new FormControl('',[Validators.required])
@@ -49,9 +46,7 @@ export class LoginComponent implements OnInit{
                 response=>{
                     console.log(response);
                     if(response && response.jwt){
-                        this.authService.handleToken(response);
-                        this.authService.changeAuthStatus(true);
-                        this.router.navigate(["/"]);
+                        this.authService.loginUser(response);
                     }
                     else{
                         this.messageService.add({severity:'error', summary: 'Error Message', detail: 'Invalid username or password.'});

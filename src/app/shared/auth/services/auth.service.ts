@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { AppUser } from './user.model';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Injectable({
     providedIn: "root"
@@ -12,11 +14,31 @@ export class AuthService{
 
     authStatus = this.loggedIn.asObservable();
 
-    changeAuthStatus(value: boolean){
+    user$: Observable<AppUser>;
+
+    constructor(
+        private router: Router,
+        private route: ActivatedRoute
+    ){}
+
+    /** Login User */
+    loginUser(loginResponse){
+        this.handleToken(loginResponse);
+        this.changeAuthStatus(true);
+
+        let returnUrl;
+        this.route.queryParams.subscribe(params=>{
+            returnUrl = params["returnUrl"];
+        })
+        if(returnUrl) this.router.navigate([returnUrl]);
+        else this.router.navigate(["/"]);
+    }
+
+    private changeAuthStatus(value: boolean){
         this.loggedIn.next(value);
     }
 
-    handleToken(tokenResponse){
+    private handleToken(tokenResponse){
         this.setToken(tokenResponse);
     }
 
@@ -55,6 +77,7 @@ export class AuthService{
     logoutUser(){
         this.removeToken();
         this.changeAuthStatus(false);
+        this.router.navigate(["/"]);
     }
     private removeToken(){
         localStorage.removeItem("sd-token");

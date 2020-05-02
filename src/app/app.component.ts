@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from './shared/login/services/service-api/login.service';
 import { timer } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { AuthService } from './shared/auth/services/AuthService';
+import { AuthService } from './shared/auth/services/auth.service';
 
 @Component({
   selector: 'app-root',

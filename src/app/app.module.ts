@@ -48,7 +48,11 @@ import { NotificationComponent } from './shared/notification/notification.compon
 
     
   ],
-  providers: [IndexService, MessageService, LoginService],
+  providers: [
+    IndexService, 
+    MessageService, 
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,6 @@
 <div class="ui-g">
-    <div class="ui-g-2"></div>
-    <div class="ui-g-8">
+    <div class="ui-g-3"></div>
+    <div class="ui-g-6">
 
         <mat-card>
             <mat-card-title style="text-align: center;">
@@ -9,12 +9,13 @@
             </mat-card-title>
             <mat-card-content>
                 <div class="ui-g" [formGroup]="loginForm">
-                    <div class="ui-g-12">
+                    
+                    <div class="ui-g-12 pdlr">
                         <div class="ui-g-12">
                             <div class="ui-inputgroup">
                                 <span class="ui-inputgroup-addon"><i class="pi pi-user"
                                         style="line-height: 1.25;"></i></span>
-                                <input type="text" formControlName="userNameOrEmail" pInputText placeholder="Username">
+                                <input type="text" formControlName="userNameOrEmail" style="width: 100%;" pInputText placeholder="Username">
                                 
                             </div>
                             <div>
@@ -24,12 +25,12 @@
                         </div>
 
                     </div>
-                    <div class="ui-g-12">
+                    <div class="ui-g-12 pdlr">
                         <div class="ui-g-12">
                             <div class="ui-inputgroup">
                                 <span class="ui-inputgroup-addon"><i class="pi pi-key"
                                         style="line-height: 1.25;"></i></span>
-                                <input type="password" formControlName="password" pInputText placeholder="Password">
+                                <input type="password" formControlName="password" style="width: 100%;" pInputText placeholder="Password">
                             </div>
                             <div>
                                 <span class="formError" *ngIf="loginForm.controls.password.invalid&&(loginForm.controls.password.touched)">Password is required.</span>
@@ -37,9 +38,9 @@
                         </div>
 
                     </div>
-                    <div class="ui-g-12">
+                    <div class="ui-g-12 pdlr">
                         <div class="ui-g-12">
-                            <button pButton type="button" label="Login" class="ui-button-rounded" (click)="login()"></button>
+                            <button style="float: right;" pButton type="button" label="Login" class="ui-button-rounded" (click)="login()"></button>
                         </div>
                         
                     </div>
@@ -49,7 +50,7 @@
         </mat-card>
 
     </div>
-    <div class="ui-g-2"></div>
+    <div class="ui-g-3"></div>
 </div>
 
 <p-toast [style]="{marginTop: '80px'}"></p-toast>

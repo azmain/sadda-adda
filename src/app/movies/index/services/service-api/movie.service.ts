@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import * as endpoints from "./../movies.endpoints";
 
@@ -11,6 +11,11 @@ export class MovieService{
 
     public fetchMovies(urlSearchParams): Observable<any>{
 
-        return this.http.get(endpoints.MOVIE_INDEX, urlSearchParams);
+        let headers = new HttpHeaders();
+        headers = headers.append("Authorization", "Bearer "+localStorage.getItem("sd-token"));
+        return this.http.get(endpoints.MOVIE_INDEX, {
+            headers: headers,
+            params: urlSearchParams
+        });
     }
 }

@@ -6,6 +6,7 @@ import { from } from 'rxjs';
 import { NotFoundComponent } from '@module/shared/not-found/not-found.component';
 import { IndexComponent } from './index/components/index.component';
 import { LoginComponent } from './shared/login/components/login.component';
+import { AuthGuard } from './shared/auth/services/auth-guard.service';
 
 const routes: Routes = [
     {
@@ -18,7 +19,8 @@ const routes: Routes = [
     },
     {
         path: 'movies',
-        loadChildren: '@module/movies/movies.module#MoviesModule'
+        loadChildren: '@module/movies/movies.module#MoviesModule',
+        canActivate: [AuthGuard]
     },
     {
         path: 'transactions',
