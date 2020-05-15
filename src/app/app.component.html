@@ -54,7 +54,7 @@
 <!-- side navbar container -->
 <mat-sidenav-container id="sideNavContainer" fullscreen>
 	<!-- side navbar left -->
-	<mat-sidenav #sidenav id="sidenav">
+	<mat-sidenav #sidenav id="sidenav" (click)="sidenav.toggle()">
 
 		<mat-card>
 			<mat-card-header>

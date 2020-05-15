@@ -1,7 +1,8 @@
 import { NgModule } from "@angular/core";
-import { MovieIndexComponent } from './index/components/movie.index.component';
-import { MovieService } from './index/services/service-api/movie.service';
+import { MovieIndexComponent } from './components/index/movie.index.component';
+import { MovieService } from './services/movie.service';
 import { MovieRoutingModule } from './movies.routes';
+import { SaddaAddaSharedModule } from '@module/shared/sadda-adda-shared.module';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { MovieRoutingModule } from './movies.routes';
     ],
     imports: [
         MovieRoutingModule,
+        SaddaAddaSharedModule
     ],
     providers: [
         MovieService

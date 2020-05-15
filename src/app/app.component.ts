@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from './shared/login/services/service-api/login.service';
-import { timer } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 import { AuthService } from './shared/auth/services/auth.service';
 
 @Component({
@@ -11,25 +8,20 @@ import { AuthService } from './shared/auth/services/auth.service';
 })
 export class AppComponent implements OnInit {
   title = 'sadda-adda';
-  menus:object[] = [
+  menus: object[] = [
     {
-      'link': '/movies',
-      'name': 'Movies'
+      link: '/',
+      name: 'Home'
     },
     {
-      'link': '/tasks',
-      'name': 'Tasks'
-    },
-    {
-      'link': '/transactions',
-      'name': 'Transactions'
-    },
+      link: '/movies',
+      name: 'Movies'
+    }
   ];
 
   isLoggedIn: boolean = false;
 
   constructor(
-    private loginService: LoginService,
     private authService: AuthService){
     
   }

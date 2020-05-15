@@ -5,6 +5,7 @@ import {Router, ActivatedRoute} from "@angular/router";
 import {MessageService} from 'primeng/api';
 import { LoginService } from '../services/service-api/login.service';
 import { AuthService } from '@module/shared/auth/services/auth.service';
+import { NotificationService } from '@module/shared/notification/services/notification.service';
 
 @Component({
     selector: 'login-component',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit{
     loginForm: FormGroup;
 
     constructor(
-        private messageService: MessageService,
+        private notificationService: NotificationService,
         private loginService: LoginService,
         private authService: AuthService
     ){}
@@ -35,8 +36,7 @@ export class LoginComponent implements OnInit{
     login(){
         this.loginForm.markAllAsTouched();
         if(this.loginForm.invalid){
-            this.messageService.add({severity:'error', summary: 'Error Message', detail:'Form is invalid.'});
-
+            this.notificationService.showError("Form is Invalid");
             return;
         }
 
@@ -49,13 +49,13 @@ export class LoginComponent implements OnInit{
                         this.authService.loginUser(response);
                     }
                     else{
-                        this.messageService.add({severity:'error', summary: 'Error Message', detail: 'Invalid username or password.'});
+                        this.notificationService.showError('Invalid username or password.');
                     }
                 },
                 errorResponse=>{
                     let error = errorResponse.error;
                     //console.log(error);
-                    this.messageService.add({severity:'error', summary: 'Error Message', detail: error.message});
+                    this.notificationService.showError(error.message);
                 }
             );
     }

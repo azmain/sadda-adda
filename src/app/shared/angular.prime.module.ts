@@ -6,6 +6,7 @@ import {ButtonModule} from 'primeng/button';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {ToastModule} from 'primeng/toast';
+import {PaginatorModule} from 'primeng/paginator';
 
 @NgModule({
 
@@ -17,7 +18,8 @@ import {ToastModule} from 'primeng/toast';
         ButtonModule,
         MessagesModule,
         MessageModule,
-        ToastModule
+        ToastModule,
+        PaginatorModule
     ],
     exports: [
         //primeng
@@ -27,7 +29,8 @@ import {ToastModule} from 'primeng/toast';
         ButtonModule,
         MessagesModule,
         MessageModule,
-        ToastModule
+        ToastModule,
+        PaginatorModule
     ]
 })
 export class AngularPrimeModule{}

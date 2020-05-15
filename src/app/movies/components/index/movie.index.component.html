@@ -1,0 +1,29 @@
+<div class="ui-g">
+    <div class="ui-g-12">
+
+        <div class="ui-g-12 ui-md-3" *ngFor="let movie of movies">
+            <mat-card>
+                <mat-card-header>
+                  <!-- <div mat-card-avatar class="example-header-image"></div> -->
+                  <mat-card-title>{{movie.movieName}}</mat-card-title>
+                  <mat-card-subtitle>{{movie.releaseDate | date: 'longDate' }}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image [src]="movieImageLink2" alt="{{ movie.movieName }}">
+                <mat-card-content>
+                  <p class="description">
+                    {{movie.description}}
+                  </p>
+                </mat-card-content>
+                <mat-card-actions *ngIf="false">
+                  <button mat-button>DETAIL</button>
+                  <button mat-button>ADD TO LIST</button>
+                </mat-card-actions>
+              </mat-card>
+        </div>
+
+        <div class="ui-g-12" *ngIf="false">
+            <p-paginator [rows]="10" [totalRecords]="120" [rowsPerPageOptions]="[10,20,30]"></p-paginator>
+        </div>
+        
+    </div>
+</div>

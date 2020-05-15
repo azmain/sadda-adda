@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import * as endpoints from "./../movies.endpoints";
+import * as endpoints from "./movies.endpoints";
 
 @Injectable()
 export class MovieService{
