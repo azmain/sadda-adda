@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { MatCheckboxModule } from '@angular/material';
+import { MatCheckboxModule, MatExpansionModule } from '@angular/material';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -24,6 +24,7 @@ import { MatInputModule } from '@angular/material/input';
         MatCardModule,
         MatSnackBarModule,
         MatInputModule,
+        MatExpansionModule
     ],
     exports: [
         MatCheckboxModule,
@@ -36,6 +37,7 @@ import { MatInputModule } from '@angular/material/input';
         MatCardModule,
         MatSnackBarModule,
         MatInputModule,
+        MatExpansionModule
     ]
 })
 export class AngularMaterialModule { }

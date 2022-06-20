@@ -18,6 +18,10 @@ const routes: Routes = [
         component: LoginComponent
     },
     {
+        path: 'flat-share',
+        loadChildren: '@module/flat-share/flat-share.module#FlatShareModule',
+    },
+    {
         path: 'movies',
         loadChildren: '@module/movies/movies.module#MoviesModule',
         canActivate: [AuthGuard]

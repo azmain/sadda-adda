@@ -14,7 +14,12 @@
     padding: 0 14px;
 }
 
-#sidenav .menu-item{
+#sidenav .avatar{
+    background-image: url('/assets/img/nishan.jpg');
+    background-size: cover;
+}
+
+/* #sidenav .menu-item{
     width: 100%;
     border-radius: 0;
     text-align: left;
@@ -22,9 +27,5 @@
 }
 #sidenav .menu-item:hover{
     background: #d1c4e9;
-}
+} */
 
-#sidenav .avatar{
-    background-image: url('/assets/img/nishan.jpg');
-    background-size: cover;
-}

@@ -15,6 +15,8 @@ import { MessageService } from 'primeng/api';
 import { LoginService } from './shared/login/services/service-api/login.service';
 import { NotificationComponent } from './shared/notification/components/notification.component';
 import { SaddaAddaSharedModule } from './shared/sadda-adda-shared.module';
+import { FlatShareModule } from './flat-share/flat-share.module';
+import { SideNavbarComponent } from './shared/sidenav/components/side-navbar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { SaddaAddaSharedModule } from './shared/sadda-adda-shared.module';
     IndexComponent,
     LoginComponent,
     NotFoundComponent,
-    NotificationComponent
+    NotificationComponent,
+    SideNavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,7 @@ import { SaddaAddaSharedModule } from './shared/sadda-adda-shared.module';
     // routing
     AppRoutingModule,
     SaddaAddaSharedModule,
-    
+    FlatShareModule
   ],
   providers: [
     IndexService, 

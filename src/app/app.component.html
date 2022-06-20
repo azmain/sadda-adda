@@ -2,7 +2,7 @@
 <mat-toolbar color="primary" id="mainTopToolbar">
 	<mat-toolbar-row>
 		<!-- left sidenav toggle button -->
-		<button mat-icon-button (click)="sidenav.toggle()" *ngIf="isLoggedIn">
+		<button mat-icon-button (click)="sidenav.toggle()" *ngIf="true">
 			<mat-icon>menu</mat-icon>
 		</button>
 		<span>SADDA ADDA</span>
@@ -54,7 +54,7 @@
 <!-- side navbar container -->
 <mat-sidenav-container id="sideNavContainer" fullscreen>
 	<!-- side navbar left -->
-	<mat-sidenav #sidenav id="sidenav" (click)="sidenav.toggle()">
+	<mat-sidenav #sidenav id="sidenav" >
 
 		<mat-card>
 			<mat-card-header>
@@ -65,15 +65,18 @@
 			</mat-card-header>
 		</mat-card>
 
-		<mat-list>
+		<!-- <mat-list>
 			<mat-list-item *ngFor="let menu of menus">
 				<button routerLink="{{ menu.link }}" class="menu-item" mat-flat-button>
 					<mat-icon>dashboard</mat-icon>
 					{{ menu.name }}
 				</button>
 			</mat-list-item>
-		</mat-list>
+		</mat-list> -->
+		<app-side-navbar></app-side-navbar>
+
 	</mat-sidenav>
+	
 
 	<!-- side navbar right content -->
 	<mat-sidenav-content>

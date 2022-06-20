@@ -1,0 +1,23 @@
+[
+  {
+    "text": "Covid 19",
+    "icon": "people",
+    "routerLink": "/"
+  },
+  {
+    "text": "Flat Share",
+    "icon": "inventory_2",
+    "children": [
+      {
+        "text": "Shareholders",
+        "icon": "category",
+        "routerLink": "/flat-share/share-holders"
+      },
+      {
+        "text": "Transactions",
+        "icon": "layers",
+        "routerLink": "/flat-share/share-transactions"
+      }
+    ]
+  }
+]

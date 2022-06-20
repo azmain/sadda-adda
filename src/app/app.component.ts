@@ -16,6 +16,10 @@ export class AppComponent implements OnInit {
     {
       link: '/movies',
       name: 'Movies'
+    },
+    {
+      link: '/flat-share',
+      name: 'Flat Share'
     }
   ];
 
